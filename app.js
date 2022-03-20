@@ -27,9 +27,9 @@ app.use(cors());
 app.use(express.json());
 // app.use('/public', express.static(path.join(__dirname, 'uploads')));
 // app.use(bodyParser.urlencoded({extended: true}));
-app.use('/', (req,res)=>{
-    res.status(200).json("Musab Mahmud");
-});
+// app.use('/', (req,res)=>{
+//     res.status(200).json("Musab Mahmud");
+// });
 app.use('/api', postRoutes);
 app.use('/api', userRoutes);
 
