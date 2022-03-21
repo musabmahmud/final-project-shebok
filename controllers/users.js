@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 exports.getUsers = (req, res) => {
     users.find({}).exec((error, user) => {
     if (user) {
-      res.status(200).json([ user ]);
+      res.status(200).json( user );
     }
     else{
       return res.status(400).json({ error });
