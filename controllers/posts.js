@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 exports.getPosts = (req, res) => {
   posts.find({}).exec((error, post) => {
     if (post) {
-      res.status(200).json([ post[0]]);
+      res.status(200).json([ post]);
       // return console.log("paise");
     }
     else{
