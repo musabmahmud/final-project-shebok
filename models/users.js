@@ -1,27 +1,55 @@
 const mongoose = require('mongoose');
 
-
 const PostSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
     },
     email: {
         type: String,
-        required: true,
     },
     password: {
         type: String,
-        required: true,
     },
     status: {
         type: Boolean,
     },
+    rate: {
+        type: String,
+    },
     role: {
         type: String,
-        required: true,
+    },
+    service:{
+        type: String,
+    },
+    sex:{
+        type: String,
+    },
+    age: {
+        type: String,
+    },
+    location: {
+        type: String,
+    },
+    nid: {
+        type: String,
+    },
+    dob:{
+        type: Date,
+    },
+    phone:{
+        type: String,
+    },
+    description:{
+        type: String,
+    },
+    balance:{
+        type: String,
     },
     activation_key: {
+        type: String,
+    },
+    otp_key: {
         type: String,
     },
     createdAt: {
@@ -32,7 +60,6 @@ const PostSchema = mongoose.Schema({
         type: Date,
         default: new Date(),
     },
-
 })
 
 module.exports = mongoose.model('users',PostSchema);
