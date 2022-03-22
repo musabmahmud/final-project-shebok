@@ -10,6 +10,9 @@ const PostSchema = mongoose.Schema({
     password: {
         type: String,
     },
+    img: {
+        type: String,
+    },
     status: {
         type: Boolean,
     },
