@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Hire = require('../models/accounts');
+const Account = require('../models/accounts');
 
 // router.get('/posts', (req, res)=>{
 //     res.send("we are on posts");
@@ -10,8 +10,8 @@ const {getAccounts, createAccount} = require('../controllers/accounts');
 
 const router = express.Router();
 
-router.get('/getaccounts', getAccounts);
+router.post('/accounts/signin', getAccounts);
 
-router.post('/accounts/post',createAccount);
+router.post('/accounts/signup',createAccount);
 
 module.exports = router;

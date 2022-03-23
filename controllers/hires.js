@@ -17,6 +17,7 @@ exports.getHires = (req, res) => {
 };
 
 exports.createHire = async (req, res) => {
+console.log(req);
   const hire = req.body;
 
   const newHires = new hires({

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Post = require('../models/users');
+const User = require('../models/users');
 
 const multer = require("multer");
 
