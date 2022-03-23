@@ -7,9 +7,9 @@ const mongoose = require('mongoose');
 
 
 exports.getNotifications = (req, res) => {
-    notifications.find({}).exec((error, notification) => {
+    notifications.find({email: req.body.email}).exec((error, notification) => {
     if (notification) {
-      res.status(200).json( notification );
+      return res.status(200).json( notification );
     }
     else{
       return res.status(400).json({ error });
@@ -22,6 +22,7 @@ exports.createNotification = async (req, res) => {
 
   const newNotifications = new notifications({
     ...notification,
+    status: true,
     createdAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
     updatedAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
   });

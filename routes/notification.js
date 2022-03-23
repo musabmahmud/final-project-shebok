@@ -10,7 +10,7 @@ const {getNotifications, createNotification} = require('../controllers/notificat
 
 const router = express.Router();
 
-router.get('/getnotifications', getNotifications);
+router.post('/getnotifications', getNotifications);
 
 router.post('/notifications/post',createNotification);
 

@@ -5,13 +5,10 @@ const NotificationSchema = mongoose.Schema({
     buyerName: {
         type: String,
     },
-    buyerEmail: {
+    email: {
         type: String,
     },
     sellerName: {
-        type: String,
-    },
-    sellerEmail: {
         type: String,
     },
     message: {
