@@ -17,7 +17,7 @@ const PostSchema = mongoose.Schema({
         type: Boolean,
     },
     rate: {
-        type: String,
+        type: Number,
     },
     role: {
         type: String,
@@ -29,32 +29,41 @@ const PostSchema = mongoose.Schema({
         type: String,
     },
     age: {
-        type: String,
+        type: Number,
+    },
+    jobs:{
+        type: Number,
     },
     location: {
         type: String,
     },
     nid: {
-        type: String,
+        type: Number,
     },
     dob:{
         type: Date,
     },
     phone:{
-        type: String,
+        type: Number,
     },
     description:{
         type: String,
     },
     balance:{
-        type: String,
+        type: Number,
     },
     activation_key: {
         type: String,
     },
     otp_key: {
-        type: String,
+        type: Number,
     },
+    reviews:[
+        {
+            userId: {type: mongoose.Schema.Types.ObjectId, ref: 'users'}, 
+            review: String
+        }
+    ],
     createdAt: {
         type: Date,
         default: new Date(),

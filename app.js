@@ -9,6 +9,7 @@ const cors = require("cors");
 // routes
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
+const hireRoutes = require('./routes/hire');
 
 // environment variable or you can say constants
 env.config();
@@ -29,6 +30,7 @@ app.use(express.json());
 
 app.use('/api', postRoutes);
 app.use('/api', userRoutes);
+app.use('/api', hireRoutes);
 
 // const port = process.env.PORT || 5000;
 

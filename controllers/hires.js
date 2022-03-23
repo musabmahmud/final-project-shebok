@@ -1,14 +1,14 @@
 const express = require("express");
 
-const users = require('../models/users');
+const hires = require('../models/hires');
 
 const mongoose = require('mongoose');
 
 
-exports.getUsers = (req, res) => {
-    users.find().limit(req.query.limit).exec((error, user) => {
-    if (user) {
-      res.status(200).json( user );
+exports.getHires = (req, res) => {
+    hires.find({}).exec((error, hire) => {
+    if (hire) {
+      res.status(200).json( hire );
     }
     else{
       return res.status(400).json({ error });
@@ -16,20 +16,18 @@ exports.getUsers = (req, res) => {
   });
 };
 
+exports.createHire = async (req, res) => {
+  const hire = req.body;
 
-exports.createUser = async (req, res) => {
-  const user = req.body;
-
-  const newUsers = new users({
-    ...user,
-    status: 1,
+  const newHires = new hires({
+    ...hire,
     createdAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
     updatedAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
   });
 
   try {
-    await newUsers.save();
-    res.status(201).json(newUsers);
+    await newHires.save();
+    res.status(201).json(newHires);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
