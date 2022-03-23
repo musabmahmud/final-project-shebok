@@ -7,9 +7,6 @@ const PostSchema = mongoose.Schema({
     email: {
         type: String,
     },
-    password: {
-        type: String,
-    },
     img: {
         type: String,
     },
@@ -58,6 +55,11 @@ const PostSchema = mongoose.Schema({
     otp_key: {
         type: Number,
     },
+    profilePicture:[
+        {
+            img:{type: String }
+        }
+    ],
     reviews:[
         {
             userId: {type: mongoose.Schema.Types.ObjectId, ref: 'users'}, 

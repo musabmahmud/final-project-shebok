@@ -20,8 +20,16 @@ exports.getUsers = (req, res) => {
 exports.createUser = async (req, res) => {
   const user = req.body;
 
+  let profilePicture = [];
+    if(req.files > 0) {
+      profilePicture = req.files.map(file => {
+            return {img: file.filename};
+        })
+    }
+
   const newUsers = new users({
     ...user,
+    profilePicture,
     status: 1,
     createdAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
     updatedAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const HireSchema = mongoose.Schema({
+const NotificationSchema = mongoose.Schema({
     buyerName: {
         type: String,
     },
@@ -14,26 +14,11 @@ const HireSchema = mongoose.Schema({
     sellerEmail: {
         type: String,
     },
-    service: {
+    message: {
         type: String,
     },
-    from: {
-        type: Date,
-    },
-    to: {
-        type: Date,
-    },
-    duration: {
-        type: Number,
-    },
-    totalCost: {
-        type: Number,
-    },
-    location: {
-        type: String,
-    },
-    address: {
-        type: String,
+    status: {
+        type: Boolean,
     },
     createdAt: {
         type: Date,
@@ -43,7 +28,6 @@ const HireSchema = mongoose.Schema({
         type: Date,
         default: new Date(),
     },
-
 })
 
-module.exports = mongoose.model('hires',HireSchema);
+module.exports = mongoose.model('notifications', NotificationSchema);

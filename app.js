@@ -10,6 +10,8 @@ const cors = require("cors");
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 const hireRoutes = require('./routes/hire');
+const accountRoutes = require('./routes/account');
+const notificationRoutes = require('./routes/notification');
 
 // environment variable or you can say constants
 env.config();
@@ -28,9 +30,13 @@ app.use(cors());
 app.use(express.json());
 // app.use('/public', express.static(path.join(__dirname, 'uploads')));
 
+app.use('/public', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', postRoutes);
 app.use('/api', userRoutes);
 app.use('/api', hireRoutes);
+app.use('/api', accountRoutes);
+app.use('/api', notificationRoutes);
+
 
 // const port = process.env.PORT || 5000;
 
