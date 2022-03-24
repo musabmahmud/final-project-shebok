@@ -4,7 +4,7 @@ const User = require('../models/users');
 
 const multer = require("multer");
 
-const {getUsers, createUser,updateUser} = require('../controllers/users');
+const {getUsers, createUser,updateUser, userData} = require('../controllers/users');
 
 const router = express.Router();
 
@@ -24,6 +24,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage})
 
 router.post('/users/create', upload.array('profilePicture'), createUser );
+
+router.post('/users/data', userData);
 
 router.post('/users/update', upload.array('profilePicture'), updateUser );
 

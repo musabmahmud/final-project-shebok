@@ -84,3 +84,16 @@ exports.updateUser = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+
+
+exports.userData = (req, res) => {
+  users.find({ email: req.body.email }).limit().exec((error, user) => {
+    if (user) {
+      res.status(200).json(user);
+    }
+    else {
+      return res.status(400).json({ error });
+    }
+  });
+};
