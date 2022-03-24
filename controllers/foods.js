@@ -1,14 +1,14 @@
 const express = require("express");
 
-const hires = require('../models/hires');
+const foods = require('../models/foods');
 
 const mongoose = require('mongoose');
 
 
-exports.getHires = (req, res) => {
-    hires.find({}).exec((error, hire) => {
+exports.getFoods = (req, res) => {
+    foods.find({}).exec((error, food) => {
     if (hire) {
-      res.status(200).json( hire );
+      res.status(200).json( food );
     }
     else{
       return res.status(400).json({ error });
@@ -16,19 +16,18 @@ exports.getHires = (req, res) => {
   });
 };
 
-exports.createHire = async (req, res) => {
-  
-  const hire = req.body;
+exports.createFood = async (req, res) => {
+  const food = req.body;
 
-  const newHires = new hires({
-    ...hire,
+  const newFoods = new hires({
+    ...food,
     createdAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
     updatedAt: new Date().toLocaleString('en-BD', { timeZone: 'UTC' }),
   });
 
   try {
-    await newHires.save();
-    res.status(201).json(newHires);
+    await newFoods.save();
+    res.status(201).json(newFoods);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }

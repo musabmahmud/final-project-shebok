@@ -6,12 +6,14 @@ const Notification = require('../models/notifications');
 //     res.send("we are on posts");
 // });
 
-const {getNotifications, createNotification} = require('../controllers/notifications');
+const {getNotifications, createNotification, updateNotification} = require('../controllers/notifications');
 
 const router = express.Router();
 
 router.post('/getnotifications', getNotifications);
 
 router.post('/notifications/post',createNotification);
+
+router.post('/notifications/update', updateNotification);
 
 module.exports = router;

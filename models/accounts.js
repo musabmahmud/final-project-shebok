@@ -11,6 +11,9 @@ const AccountSchema = mongoose.Schema({
     password: {
         type: String,
     },
+    role: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: new Date(),
